@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+html,body{
+  height: 100vh;
+  overflow: scroll;
+}
+
+.l-menu{
+  height: 100vh;
+  overflow: scroll;
+}
+.l-container{
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.l-content{
+  margin-top: 2em;
+  height: 100vh;
+  overflow: scroll;
+}

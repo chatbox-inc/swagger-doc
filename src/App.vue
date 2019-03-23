@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="l-container">
+      <div class="row">
+        <div class="col-3">
+          <div class="l-menu">
+
+            <app-menu v-if="swagger" :swagger="swagger"/>
+
+            <div v-if="swagger">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="l-content">
+            <router-view />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppMenu from './components/Menu.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    AppMenu
+  },
+  computed:{
+    swagger(){
+      return this.$store.state.swagger
+    }
+  },
+  async mounted(){
+    this.$store.dispatch("fetch")
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
